@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Azure Grand Hotel | Luxury Hotel</title>
+
+    <meta name="description"
+          content="Experience luxury and comfort at Azure Grand Hotel. Book your stay directly for the best available rates.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 22px 7%;
+            color: white;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .nav-button {
+            border: 1px solid white;
+            padding: 10px 18px;
+            border-radius: 3px;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 720px;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+
+            padding: 100px 20px 150px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(45px, 7vw, 80px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero-content .hero-text {
+            font-size: 18px;
+            letter-spacing: 0;
+            text-transform: none;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            background: #b08b57;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            margin-top: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .primary-btn:hover {
+            background: #8f6c3e;
+        }
+
+        /* ================= BOOKING ================= */
+
+        .booking-wrapper {
+            position: relative;
+            margin-top: -70px;
+            z-index: 5;
+            padding: 0 7%;
+        }
+
+        .booking-box {
+            background: white;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+            padding: 30px;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .booking-field label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            text-transform: uppercase;
+            color: #666;
+        }
+
+        .booking-field input,
+        .booking-field select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            outline: none;
+        }
+
+        .search-btn {
+            border: none;
+            background: #222;
+            color: white;
+            cursor: pointer;
+            padding: 12px;
+            margin-top: 19px;
+        }
+
+        .search-btn:hover {
+            background: #b08b57;
+        }
+
+        #bookingMessage {
+            grid-column: 1 / -1;
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* ================= COMMON ================= */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-heading span {
+            color: #b08b57;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            font-size: 38px;
+            margin-top: 10px;
+        }
+
+        .section-heading p {
+            color: #777;
+            max-width: 650px;
+            margin: 15px auto 0;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 45px;
+            margin-top: 30px;
+        }
+
+        .stat h3 {
+            font-size: 28px;
+            color: #b08b57;
+        }
+
+        .stat p {
+            font-size: 13px;
+        }
+
+        /* ================= ROOMS ================= */
+
+        .rooms {
+            background: #f7f5f1;
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .room-card {
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .room-image {
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .room-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .room-info {
+            padding: 25px;
+        }
+
+        .room-info h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .room-meta {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .amenities span {
+            background: #f1eee9;
+            padding: 5px 9px;
+            font-size: 12px;
+        }
+
+        .room-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .price small {
+            font-size: 12px;
+            font-weight: normal;
+            color: #777;
+        }
+
+        /* ================= FACILITIES ================= */
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .facility {
+            border: 1px solid #eee;
+            padding: 35px 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .facility:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .facility-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .facility h3 {
+            margin-bottom: 8px;
+        }
+
+        .facility p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* ================= DINING ================= */
+
+        .dining {
+            background: #222;
+            color: white;
+        }
+
+        .dining .section-heading p {
+            color: #bbb;
+        }
+
+        .dining-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .dining-card {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .dining-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .dining-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .dining-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px 20px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        /* ================= GALLERY ================= */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .gallery-item {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.07);
+        }
+
+        /* ================= REVIEWS ================= */
+
+        .reviews {
+            background: #f7f5f1;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .review {
+            background: white;
+            padding: 30px;
+        }
+
+        .stars {
+            color: #b08b57;
+            margin-bottom: 15px;
+        }
+
+        .review p {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .review h4 {
+            font-size: 15px;
+        }
+
+        /* ================= LOCATION ================= */
+
+        .location {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .location-info h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 18px 0;
+        }
+
+        .contact-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .contact-item span {
+            color: #666;
+        }
+
+        .map {
+            height: 380px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 55px 7% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer li {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #777;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1000px) {
+
+            .booking-box {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .room-grid,
+            .dining-grid,
+            .review-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .facility-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 650px;
+            }
+
+            section {
+                padding: 65px 5%;
+            }
+
+            .booking-wrapper {
+                padding: 0 5%;
+            }
+
+            .booking-box {
+                grid-template-columns: 1fr;
+            }
+
+            .about,
+            .location {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img {
+                height: 350px;
+            }
+
+            .room-grid,
+            .dining-grid,
+            .review-grid,
+            .facility-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        AZURE GRAND
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#dining">Dining</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <a href="#booking" class="nav-button">
+        Book Now
+    </a>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p>Luxury • Comfort • Experience</p>
+
+        <h1>Stay Beyond Ordinary</h1>
+
+        <p class="hero-text">
+            Discover a refined hotel experience where contemporary
+            luxury meets warm Indian hospitality.
+        </p>
+
+        <a href="#booking" class="primary-btn">
+            Check Availability
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOKING ================= -->
+
+<div class="booking-wrapper" id="booking">
+
+    <form class="booking-box" id="bookingForm">
+
+        <div class="booking-field">
+            <label>Check-in</label>
+            <input type="date" id="checkin" required>
+        </div>
+
+        <div class="booking-field">
+            <label>Check-out</label>
+            <input type="date" id="checkout" required>
+        </div>
+
+        <div class="booking-field">
+            <label>Guests</label>
+
+            <select id="guests">
+
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+                <option value="5">5 Adults</option>
+
+            </select>
+        </div>
+
+        <div class="booking-field">
+            <label>Rooms</label>
+
+            <select id="rooms">
+
+                <option>1 Room</option>
+                <option>2 Rooms</option>
+                <option>3 Rooms</option>
+                <option>4 Rooms</option>
+
+            </select>
+        </div>
+
+        <button class="search-btn" type="submit">
+            Check Availability
+        </button>
+
+        <div id="bookingMessage"></div>
+
+    </form>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+    <div class="about">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+                alt="Luxury hotel interior">
+
+        </div>
+
+        <div class="about-content">
+
+            <div class="section-heading" style="text-align:left; margin-bottom:20px;">
+
+                <span>Welcome to Azure Grand</span>
+
+                <h2>A Place To Feel At Home</h2>
+
+            </div>
+
+            <p>
+                Azure Grand Hotel offers an elegant stay designed for
+                business travellers, couples, families and international guests.
+            </p>
+
+            <p>
+                From thoughtfully designed rooms to exceptional dining
+                and personalized service, every detail is created around
+                your comfort.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>120+</h3>
+                    <p>Luxury Rooms</p>
+                </div>
+
+                <div class="stat">
+                    <h3>4.8</h3>
+                    <p>Guest Rating</p>
+                </div>
+
+                <div class="stat">
+                    <h3>24/7</h3>
+                    <p>Guest Service</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ROOMS ================= -->
+
+<section class="rooms" id="rooms">
+
+    <div class="section-heading">
+
+        <span>Accommodation</span>
+
+        <h2>Rooms & Suites</h2>
+
+        <p>
+            Choose from thoughtfully designed rooms equipped with
+            everything you need for a comfortable stay.
+        </p>
+
+    </div>
+
+
+    <div class="room-grid">
+
+        <!-- ROOM 1 -->
+
+        <div class="room-card">
+
+            <div class="room-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80"
+                    alt="Deluxe Room">
+
+            </div>
+
+            <div class="room-info">
+
+                <h3>Deluxe Room</h3>
+
+                <div class="room-meta">
+                    35 sq. m • King Bed • City View
+                </div>
+
+                <div class="amenities">
+
+                    <span>Wi-Fi</span>
+                    <span>Smart TV</span>
+                    <span>Mini Bar</span>
+                    <span>AC</span>
+
+                </div>
+
+                <div class="room-bottom">
+
+                    <div class="price">
+                        ₹6,500 <small>/ night</small>
+                    </div>
+
+                    <button class="primary-btn" onclick="selectRoom('Deluxe Room')">
+                        Select
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ROOM 2 -->
+
+        <div class="room-card">
+
+            <div class="room-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80"
+                    alt="Executive Room">
+
+            </div>
+
+            <div class="room-info">
+
+                <h3>Executive Room</h3>
+
+                <div class="room-meta">
+                    45 sq. m • King Bed • Garden View
+                </div>
+
+                <div class="amenities">
+
+                    <span>Wi-Fi</span>
+                    <span>Work Desk</span>
+                    <span>Breakfast</span>
+                    <span>Safe</span>
+
+                </div>
+
+                <div class="room-bottom">
+
+                    <div class="price">
+                        ₹8,500 <small>/ night</small>
+                    </div>
+
+                    <button class="primary-btn" onclick="selectRoom('Executive Room')">
+                        Select
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ROOM 3 -->
+
+        <div class="room-card">
+
+            <div class="room-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
+                    alt="Executive Suite">
+
+            </div>
+
+            <div class="room-info">
+
+                <h3>Executive Suite</h3>
+
+                <div class="room-meta">
+                    65 sq. m • King Bed • City View
+                </div>
+
+                <div class="amenities">
+
+                    <span>Wi-Fi</span>
+                    <span>Living Area</span>
+                    <span>Breakfast</span>
+                    <span>Bathtub</span>
+
+                </div>
+
+                <div class="room-bottom">
+
+                    <div class="price">
+                        ₹12,500 <small>/ night</small>
+                    </div>
+
+                    <button class="primary-btn" onclick="selectRoom('Executive Suite')">
+                        Select
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FACILITIES ================= -->
+
+<section id="facilities">
+
+    <div class="section-heading">
+
+        <span>Hotel Facilities</span>
+
+        <h2>Everything You Need</h2>
+
+    </div>
+
+
+    <div class="facility-grid">
+
+        <div class="facility">
+
+            <div class="facility-icon">📶</div>
+
+            <h3>Free Wi-Fi</h3>
+
+            <p>High-speed internet throughout the property.</p>
+
+        </div>
+
+
+        <div class="facility">
+
+            <div class="facility-icon">🏊</div>
+
+            <h3>Swimming Pool</h3>
+
+            <p>Relax by our temperature-controlled pool.</p>
+
+        </div>
+
+
+        <div class="facility">
+
+            <div class="facility-icon">🏋️</div>
+
+            <h3>Fitness Center</h3>
+
+            <p>Modern equipment available 24 hours.</p>
+
+        </div>
+
+
+        <div class="facility">
+
+            <div class="facility-icon">💆</div>
+
+            <h3>Spa & Wellness</h3>
+
+            <p>Rejuvenate with our wellness treatments.</p>
+
+        </div>
+
+
+        <div class="facility">
+
+            <div class="facility-icon">🚗</div>
+
+            <h3>Free Parking</h3>
+
+            <p>Secure parking available for hotel guests.</p>
+
+        </div>
+
+
+        <div class="facility">
+
+            <div class="facility-icon">✈️</div>
+
+            <h3>Airport Shuttle</h3>
+
+            <p>Airport transfers available on request.</p>
+
+        </div>
+
+
+        <div class="facility">
+
+            <div class="facility-icon">🕐</div>
+
+            <h3>24/7 Front Desk</h3>
+
+            <p>Our team is available around the clock.</p>
+
+        </div>
+
+
+        <div class="facility">
+
+            <div class="facility-icon">💼</div>
+
+            <h3>Business Center</h3>
+
+            <p>Meeting rooms and workspaces for business guests.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DINING ================= -->
+
+<section class="dining" id="dining">
+
+    <div class="section-heading">
+
+        <span>Food & Beverage</span>
+
+        <h2>Dining Experiences</h2>
+
+        <p>
+            Discover carefully prepared dishes and memorable dining
+            experiences within the hotel.
+        </p>
+
+    </div>
+
+
+    <div class="dining-grid">
+
+        <div class="dining-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=80"
+                alt="Restaurant">
+
+            <div class="dining-info">
+
+                <h3>Azure Restaurant</h3>
+
+                <p>Indian & International Cuisine</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dining-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1000&q=80"
+                alt="Hotel bar">
+
+            <div class="dining-info">
+
+                <h3>Sky Lounge</h3>
+
+                <p>Evening drinks & city views</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dining-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1000&q=80"
+                alt="Breakfast">
+
+            <div class="dining-info">
+
+                <h3>Breakfast Lounge</h3>
+
+                <p>Daily breakfast • 7:00 AM – 11:00 AM</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+    <div class="section-heading">
+
+        <span>Explore Azure Grand</span>
+
+        <h2>Hotel Gallery</h2>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=80" alt="Hotel">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80" alt="Room">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80" alt="Pool">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80" alt="Hotel exterior">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80" alt="Hotel lobby">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=900&q=80" alt="Luxury room">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80" alt="Spa">
+        </div>
+
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?auto=format&fit=crop&w=900&q=80" alt="Dining">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section class="reviews">
+
+    <div class="section-heading">
+
+        <span>Guest Reviews</span>
+
+        <h2>What Our Guests Say</h2>
+
+    </div>
+
+
+    <div class="review-grid">
+
+        <div class="review">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                "Beautiful property, excellent service and extremely
+                comfortable rooms. The breakfast was excellent."
+            </p>
+
+            <h4>— Rahul Mehta</h4>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                "The location was perfect for our business trip.
+                The staff made the entire stay effortless."
+            </p>
+
+            <h4>— Priya Shah</h4>
+
+        </div>
+
+
+        <div class="review">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                "A wonderful family stay. The rooms were spacious
+                and the swimming pool was fantastic."
+            </p>
+
+            <h4>— Arjun Kapoor</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= LOCATION ================= -->
+
+<section id="contact">
+
+    <div class="location">
+
+        <div class="location-info">
+
+            <span style="color:#b08b57; letter-spacing:3px;">
+                FIND US
+            </span>
+
+            <h2>Perfectly Located</h2>
+
+            <div class="contact-item">
+
+                <strong>Address</strong>
+
+                <span>
+                    Azure Grand Hotel, Marine Drive,
+                    Mumbai, Maharashtra 400020
+                </span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>Airport</strong>
+
+                <span>
+                    Chhatrapati Shivaji Maharaj International Airport
+                    — approximately 20 km
+                </span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>Railway Station</strong>
+
+                <span>
+                    Mumbai Central — approximately 4 km
+                </span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>Phone</strong>
+
+                <span>+91 98765 43210</span>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>Email</strong>
+
+                <span>reservations@azuregrand.com</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="map">
+
+            <div>
+
+                <h3>📍 Azure Grand Hotel</h3>
+
+                <p>
+                    Interactive Google Maps can be embedded here.
+                </p>
+
+                <button class="primary-btn"
+                        onclick="openMaps()">
+                    Open Google Maps
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h3>AZURE GRAND</h3>
+
+            <p>
+                A contemporary luxury hotel offering elegant rooms,
+                exceptional dining and personalized hospitality.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>Hotel</h3>
+
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Services</h3>
+
+            <ul>
+                <li>Room Service</li>
+                <li>Airport Transfer</li>
+                <li>Spa & Wellness</li>
+                <li>Business Center</li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Information</h3>
+
+            <ul>
+                <li>Privacy Policy</li>
+                <li>Terms & Conditions</li>
+                <li>Cancellation Policy</li>
+                <li>Contact Us</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Azure Grand Hotel. All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    // Set minimum check-in date to today
+
+    const today = new Date();
+
+    const formattedToday =
+        today.toISOString().split("T")[0];
+
+    document.getElementById("checkin").min = formattedToday;
+
+    document.getElementById("checkout").min = formattedToday;
+
+
+    // Check-out must be after check-in
+
+    document.getElementById("checkin")
+        .addEventListener("change", function () {
+
+            const checkinDate = new Date(this.value);
+
+            checkinDate.setDate(checkinDate.getDate() + 1);
+
+            document.getElementById("checkout").min =
+                checkinDate.toISOString().split("T")[0];
+
+        });
+
+
+    // Booking form
+
+    document.getElementById("bookingForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const checkin =
+                document.getElementById("checkin").value;
+
+            const checkout =
+                document.getElementById("checkout").value;
+
+            const guests =
+                document.getElementById("guests").value;
+
+            const rooms =
+                document.getElementById("rooms").value;
+
+            const message =
+                document.getElementById("bookingMessage");
+
+            if (!checkin || !checkout) {
+
+                message.innerHTML =
+                    "Please select your check-in and check-out dates.";
+
+                return;
+
+            }
+
+            message.innerHTML =
+                `Availability checked for ${guests} guest(s), ${rooms},
+                from ${checkin} to ${checkout}.`;
+
+        });
+
+
+    // Room selection
+
+    function selectRoom(roomName) {
+
+        alert(
+            roomName +
+            " selected. Please choose your dates above to continue."
+        );
+
+        document
+            .getElementById("booking")
+            .scrollIntoView();
+
+    }
+
+
+    // Google Maps
+
+    function openMaps() {
+
+        window.open(
+            "https://www.google.com/maps/search/?api=1&query=Marine+Drive+Mumbai",
+            "_blank"
+        );
+
+    }
+
+</script>
+
+</body>
+</html>
